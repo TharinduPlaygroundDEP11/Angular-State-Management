@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
   template: `
     <app-header-component [title]="'State Management in Angular'"
                           [fontsize]="'text-4xl'"
-                          [color]="'text-red-500'">
+                          [color]="'text-blue-500'">
 
     </app-header-component>
+    <app-task-list></app-task-list>
   `
 })
 export class AppComponent {
