@@ -12,6 +12,8 @@ export type TaskType = {
     <div class="p-2">
       @for (task of taskList; track task.id) {
         <app-task [task]="task" (onDelete)="deleteTask($event)"/>
+      } @empty {
+        <p class="text-center mt-3">The Task List is Empty!</p>
       }
     </div>
   `,

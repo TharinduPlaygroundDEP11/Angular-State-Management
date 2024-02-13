@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskComponent } from './task/task.component';
+import { NewTaskComponent } from './new-task/new-task.component';
+import {FormsModule} from "@angular/forms";
+import {TaskService} from "./service/task.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponentComponent,
     TaskListComponent,
-    TaskComponent
+    TaskComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    TaskService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

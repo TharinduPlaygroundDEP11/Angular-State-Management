@@ -9,7 +9,8 @@ import { Component } from '@angular/core';
                           [color]="'text-blue-500'">
 
     </app-header-component>
-    <app-task-list></app-task-list>
+    <app-new-task />
+    <app-task-list/>
   `
 })
 export class AppComponent {
