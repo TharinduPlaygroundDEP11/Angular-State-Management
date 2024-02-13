@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-
-export type TaskType = {
-  id:number,
-  description:string,
-  status:boolean
-}
+import {TaskService} from "../service/task.service";
+import {TaskDto} from "../dto/task-dto";
 
 @Component({
   selector: 'app-task-list',
@@ -20,7 +16,11 @@ export type TaskType = {
   styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent {
-  taskList: TaskType[] = [
+
+  constructor(private taskService: TaskService) {
+  }
+
+  taskList: TaskDto[] = [
     {id:1, description:'Task 1', status: true},
     {id:2, description:'Task 2', status: false},
     {id:3, description:'Task 3', status: false},
