@@ -22,13 +22,13 @@ export class TaskComponent {
   @Input()
   task!: TaskDto;
 
-  @Output()
-  onDelete = new EventEmitter<number>();
+  // @Output()
+  // onDelete = new EventEmitter<number>();
 
   constructor(private taskService: TaskService) {
   }
 
   handleDelete() {
-    this.onDelete.emit(this.task.id);
+    this.taskService.deleteTask(this.task);
   }
 }

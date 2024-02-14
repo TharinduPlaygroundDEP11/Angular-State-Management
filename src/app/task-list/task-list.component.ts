@@ -7,7 +7,7 @@ import {TaskDto} from "../dto/task-dto";
   template: `
     <div class="p-2">
       @for (task of taskList; track task.id) {
-        <app-task [task]="task" (onDelete)="deleteTask($event)"/>
+        <app-task [task]="task"/>
       } @empty {
         <p class="text-center mt-3">The Task List is Empty!</p>
       }
@@ -17,19 +17,14 @@ import {TaskDto} from "../dto/task-dto";
 })
 export class TaskListComponent {
 
+  taskList: TaskDto[];
+
   constructor(private taskService: TaskService) {
+    this.taskList = taskService.getAllTasks();
   }
 
-  taskList: TaskDto[] = [
-    {id:1, description:'Task 1', status: true},
-    {id:2, description:'Task 2', status: false},
-    {id:3, description:'Task 3', status: false},
-    {id:4, description:'Task 4', status: true},
-    {id:5, description:'Task 5', status: false}
-  ];
-
-  deleteTask(taskId:number) {
-    const index = this.taskList.findIndex(t => t.id === taskId);
-    this.taskList.splice(index, 1);
-  }
+  // deleteTask(taskId:number) {
+  //   const index = this.taskList.findIndex(t => t.id === taskId);
+  //   this.taskList.splice(index, 1);
+  // }
 }

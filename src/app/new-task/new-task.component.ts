@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TaskService} from "../service/task.service";
+import {TaskDto} from "../dto/task-dto";
 
 @Component({
   selector: 'app-new-task',
@@ -30,13 +31,17 @@ export class NewTaskComponent {
 
   onSubmit(txtElm: HTMLInputElement) {
     const description = txtElm.value.trim();
+
     if (!description) {
       txtElm.focus();
       txtElm.select();
       return;
     }
 
-    // Todo: Add new task to the list
+    this.taskService.addTask(new TaskDto(
+      this.taskService.getAllTasks().length + 1,
+      description
+    ))
     txtElm.value = '';
     txtElm.focus();
   }
